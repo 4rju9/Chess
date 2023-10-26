@@ -1,8 +1,8 @@
-<!-- <p align="center">
-   <a href="https://github.com/4rju9/Smu"><img src="https://github.com/4rju9/Music-Verse/assets/63835760/edb8485f-6ce1-44fc-a8c3-8fd387a41152" alt="SMU"</a>
+<p align="center">
+   <a href="https://github.com/4rju9/Smu"><img src="https://github.com/4rju9/Chess/assets/63835760/1c15ebb0-8331-4209-989b-57ab238a13ca" alt="Chess"</a>
    <br>
    <br>
-</p> -->
+</p>
 <h1>Chess</h1>
 <b>This project is an Android chess game written in Java. It is a simple but complete implementation of the game, with all of the standard rules and features. </b>
 
