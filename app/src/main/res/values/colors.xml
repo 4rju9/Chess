@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="chessGreen">#769655</color>
+    <color name="chessWhite">#EEEED2</color>
+    <color name="brown">#6A4C43</color>
+</resources>
