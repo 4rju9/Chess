@@ -62,7 +62,7 @@ public class ChessView extends View {
         if (canvas != null) {
             int width = getWidth();
             int height = getHeight();
-            float scaleFactor = 1.0f;
+            float scaleFactor = 0.94f;
             float chessBoardSide = Integer.min(width, height) * scaleFactor;
             cellSide = chessBoardSide / 8f;
             originX = (width - chessBoardSide) / 2f;
