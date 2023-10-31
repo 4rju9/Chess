@@ -1,5 +1,6 @@
 package cf.arjun.dev.chess;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ComponentName;
@@ -85,5 +86,17 @@ public class MainActivity extends AppCompatActivity implements ChessDelegate, Se
     @Override
     public void onServiceDisconnected(ComponentName name) {
         game = null;
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("Exit !")
+                .setMessage("You will lose all the progress made to the current.\nAre you sure?")
+                .setPositiveButton("Exit Anyway!", (dialog1, which) -> super.onBackPressed())
+                .setNegativeButton("Discard", (dialog2, which) -> {
+                })
+                .setCancelable(false)
+                .show();
     }
 }
