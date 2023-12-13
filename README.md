@@ -1,5 +1,5 @@
 <p align="center">
-   <a href="https://github.com/4rju9/Smu"><img src="https://github.com/4rju9/Chess/assets/63835760/1c15ebb0-8331-4209-989b-57ab238a13ca" alt="Chess"</a>
+   <a href="https://github.com/4rju9/Chess"><img src="https://github.com/4rju9/Chess/assets/63835760/1c15ebb0-8331-4209-989b-57ab238a13ca" alt="Chess"</a>
    <br>
    <br>
 </p>
