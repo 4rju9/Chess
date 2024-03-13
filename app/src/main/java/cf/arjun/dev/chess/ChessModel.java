@@ -6,6 +6,8 @@ import java.util.List;
 public class ChessModel {
     private final List<ChessPiece> piecesBox;
     private int ActivePlayer;
+    private boolean canWhiteCastle;
+    private boolean canBlackCastle;
 
     public ChessModel () {
         piecesBox = new ArrayList<>();
@@ -34,7 +36,7 @@ public class ChessModel {
                 piece.col = to.col;
                 piece.row = to.row;
 
-                ActivePlayer = (piece.player == ChessPlayer.WHITE) ? 2 : 1;
+                updateActivePlayer(piece);
 
             }
         }
@@ -58,7 +60,17 @@ public class ChessModel {
                 return canQueenMove(from, to);
             }
             case KING: {
-                return canKingMove(from, to);
+
+                int dx = Math.abs(from.col - to.col);
+                if (movingPiece.player == ChessPlayer.WHITE && canWhiteCastle && dx == 2) {
+                    kingCastle(from, to);
+                    updateActivePlayer(movingPiece);
+                    return false;
+                } else if (movingPiece.player == ChessPlayer.BLACK && canBlackCastle && dx == 2) {
+                    kingCastle(from, to);
+                    updateActivePlayer(movingPiece);
+                    return false;
+                } else return canKingMove(from, to);
             }
             case PAWN: {
                 return canPawnMove(from, to);
@@ -87,6 +99,7 @@ public class ChessModel {
     private boolean canKingMove (Square from, Square to) {
         int dx = Math.abs(from.col - to.col);
         int dy = Math.abs(from.row - to.row);
+
         return (canQueenMove(from, to) && ((dx == 1 && dy == 1) || (dx + dy == 1)));
     }
 
@@ -158,6 +171,7 @@ public class ChessModel {
     public void reset () {
 
         ActivePlayer = 1;
+        canWhiteCastle = canBlackCastle = true;
         piecesBox.clear();
 
         // Adding Rock, Knight and Bishop
@@ -173,9 +187,9 @@ public class ChessModel {
 
         // Adding King and Queen
 
-        piecesBox.add(new ChessPiece(3, 0, ChessPlayer.WHITE, ChessRank.KING, R.drawable.king_white));
+        piecesBox.add(new ChessPiece(4, 0, ChessPlayer.WHITE, ChessRank.KING, R.drawable.king_white));
         piecesBox.add(new ChessPiece(4, 7, ChessPlayer.BLACK, ChessRank.KING, R.drawable.king_black));
-        piecesBox.add(new ChessPiece(4, 0, ChessPlayer.WHITE, ChessRank.QUEEN, R.drawable.queen_white));
+        piecesBox.add(new ChessPiece(3, 0, ChessPlayer.WHITE, ChessRank.QUEEN, R.drawable.queen_white));
         piecesBox.add(new ChessPiece(3, 7, ChessPlayer.BLACK, ChessRank.QUEEN, R.drawable.queen_black));
 
         // Adding all Pawns
@@ -187,6 +201,40 @@ public class ChessModel {
             }
         }
 
+    }
+
+    private void kingCastle(Square from, Square to) {
+
+        ChessPiece king = pieceAt(from);
+        if (king != null) {
+            king.col = to.col;
+            ChessPiece rook;
+            if (king.player == ChessPlayer.WHITE) {
+                canWhiteCastle = false;
+                if (from.col < to.col) {
+                    rook = pieceAt(new Square(7, 0));
+                    rook.col = 5;
+                }
+                else {
+                    rook = pieceAt(new Square(0, 0));
+                    rook.col = 3;
+                }
+            } else if (king.player == ChessPlayer.BLACK) {
+                canBlackCastle = false;
+                if (from.col < to.col) {
+                    rook = pieceAt(new Square(7, 7));
+                    rook.col = 5;
+                }
+                else {
+                    rook = pieceAt(new Square(0, 7));
+                    rook.col = 3;
+                }
+            }
+        }
+    }
+
+    private void updateActivePlayer (ChessPiece piece) {
+        ActivePlayer = (piece.player == ChessPlayer.WHITE) ? 2 : 1;
     }
 
     public ChessPiece pieceAt (Square square) {

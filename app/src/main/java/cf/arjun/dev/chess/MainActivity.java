@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
+
 public class MainActivity extends AppCompatActivity implements ChessDelegate, ServiceConnection {
 
     ChessView chessView;
@@ -55,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements ChessDelegate, Se
             }
             return true;
         });
+        title.setOnClickListener( v -> Toast.makeText(MainActivity.this, "Press & Hold", Toast.LENGTH_SHORT).show());
     }
 
     @Override
