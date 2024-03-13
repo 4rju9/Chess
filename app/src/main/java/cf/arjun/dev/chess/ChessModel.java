@@ -5,27 +5,11 @@ import java.util.List;
 
 public class ChessModel {
     private final List<ChessPiece> piecesBox;
-    private int ActivePlayer = 0;
+    private int ActivePlayer;
 
     public ChessModel () {
         piecesBox = new ArrayList<>();
         reset();
-    }
-
-    private void isGameOver () {
-        int count = 0;
-        ChessPiece piece = null;
-        for (ChessPiece p : piecesBox) {
-            if (p.rank == ChessRank.KING) {
-                count++;
-                piece = p;
-            }
-        }
-        if (count == 1) {
-            ChessPiece finalPiece = piece;
-            piecesBox.removeIf(p -> p.player != finalPiece.player);
-        }
-
     }
 
     public void movePiece (Square from, Square to) {
@@ -51,8 +35,6 @@ public class ChessModel {
                 piece.row = to.row;
 
                 ActivePlayer = (piece.player == ChessPlayer.WHITE) ? 2 : 1;
-
-                isGameOver();
 
             }
         }
@@ -175,7 +157,7 @@ public class ChessModel {
 
     public void reset () {
 
-        ActivePlayer = 0;
+        ActivePlayer = 1;
         piecesBox.clear();
 
         // Adding Rock, Knight and Bishop
