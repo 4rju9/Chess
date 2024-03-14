@@ -2,8 +2,6 @@
    <a href="https://github.com/4rju9/Chess"><img src="https://github.com/4rju9/Chess/assets/63835760/f3c41679-e17f-4806-855f-644b21c29e24" alt="Chess"</a>
    <br>
    <br>
-</p>
-<p align="center">
    <a href="https://github.com/4rju9/Chess"><img src="https://github.com/4rju9/Chess/assets/63835760/2886a98a-2d96-4f58-8c73-831bd644070f" alt="Chess"</a>
    <br>
    <br>
