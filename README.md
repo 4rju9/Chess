@@ -1,3 +1,7 @@
+
+
+https://github.com/4rju9/Chess/assets/63835760/d4ae6d15-08af-46e3-98bb-5d292dd2863d
+
 <p align="center">
    <img src="https://github.com/4rju9/Chess/assets/63835760/f3c41679-e17f-4806-855f-644b21c29e24"
      width="200" 
