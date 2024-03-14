@@ -1,14 +1,10 @@
-
-
-https://github.com/4rju9/Chess/assets/63835760/d4ae6d15-08af-46e3-98bb-5d292dd2863d
-
 <p align="center">
    <img src="https://github.com/4rju9/Chess/assets/63835760/f3c41679-e17f-4806-855f-644b21c29e24"
      width="200" 
      height="200" />
    <a href="https://github.com/4rju9/Chess"><img src="https://github.com/4rju9/Chess/assets/63835760/2886a98a-2d96-4f58-8c73-831bd644070f" alt="Chess"</a>
    <br>
-      https://github.com/4rju9/Chess/assets/63835760/ef5a2858-0e66-42ca-95eb-dbe8158a3371
+      https://github.com/4rju9/Chess/assets/63835760/d4ae6d15-08af-46e3-98bb-5d292dd2863d
    <br>
 </p>
 <h1>Chess</h1>
