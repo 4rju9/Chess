@@ -6,7 +6,7 @@
    <br>
    <br>
    </p>
-   https://github.com/4rju9/Chess/assets/63835760/d4ae6d15-08af-46e3-98bb-5d292dd2863d
+   [https://github.com/4rju9/Chess/assets/63835760/d4ae6d15-08af-46e3-98bb-5d292dd2863d]
 <h1>Chess</h1>
 <b>This project is an Android chess game written in Java. It is a simple but complete implementation of the game, with all of the standard rules and features. </b>
 
