@@ -1,4 +1,5 @@
 package cf.arjun.dev.chess;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,7 +11,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import java.util.HashMap;
 import java.util.Map;
-
 import androidx.annotation.Nullable;
 
 public class ChessView extends View {
@@ -62,7 +62,7 @@ public class ChessView extends View {
         if (canvas != null) {
             int width = getWidth();
             int height = getHeight();
-            float scaleFactor = 0.94f;
+            float scaleFactor = 1f;
             float chessBoardSide = Integer.min(width, height) * scaleFactor;
             cellSide = chessBoardSide / 8f;
             originX = (width - chessBoardSide) / 2f;
