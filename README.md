@@ -4,7 +4,7 @@
      height="200" />
    <a href="https://github.com/4rju9/Chess"><img src="https://github.com/4rju9/Chess/assets/63835760/2886a98a-2d96-4f58-8c73-831bd644070f" alt="Chess"</a>
    <br>
-      <video width="320" height="240" controls>
+      <video width="320" height="240" autoplay>
   <source src="https://github.com/4rju9/Chess/assets/63835760/ef5a2858-0e66-42ca-95eb-dbe8158a3371" type="video/ogg">
 </video>
    <br>
