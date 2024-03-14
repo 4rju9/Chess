@@ -4,9 +4,9 @@
      height="200" />
    <a href="https://github.com/4rju9/Chess"><img src="https://github.com/4rju9/Chess/assets/63835760/2886a98a-2d96-4f58-8c73-831bd644070f" alt="Chess"</a>
    <br>
-      https://github.com/4rju9/Chess/assets/63835760/d4ae6d15-08af-46e3-98bb-5d292dd2863d
    <br>
-</p>
+   </p>
+   https://github.com/4rju9/Chess/assets/63835760/d4ae6d15-08af-46e3-98bb-5d292dd2863d
 <h1>Chess</h1>
 <b>This project is an Android chess game written in Java. It is a simple but complete implementation of the game, with all of the standard rules and features. </b>
 
