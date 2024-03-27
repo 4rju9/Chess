@@ -28,6 +28,9 @@ public class ChessModel {
 
             if (ActivePlayer == 1 && piece.player == ChessPlayer.BLACK) return;
             if (ActivePlayer == 2 && piece.player == ChessPlayer.WHITE) return;
+            
+            boolean isRookMoved = false;
+            ChessPlayer player = pieceAt(from).player;
 
             if (canMove(from, to)) {
 
@@ -35,6 +38,16 @@ public class ChessModel {
                 if (secondPiece != null) {
                     if (secondPiece.player.equals(piece.player)) return;
                     piecesBox.remove(secondPiece);
+                }
+
+                if (piece.rank == ChessRank.ROCK) {
+                    if (piece.player == ChessPlayer.WHITE) {
+                        if (piece.col == 7) canWhiteCastleRight = false;
+                        else if (piece.col == 0) canWhiteCastleLeft = false;
+                    } else {
+                        if (piece.col == 7) canBlackCastleRight = false;
+                        else if (piece.col == 0) canBlackCastleLeft = false;
+                    }
                 }
 
                 piece.col = to.col;
@@ -92,18 +105,6 @@ public class ChessModel {
     }
 
     private boolean canRookMove (Square from, Square to) {
-
-        ChessPiece rook = pieceAt(from);
-        if (rook != null) {
-            if (rook.player == ChessPlayer.WHITE) {
-                if (rook.col == 7) canWhiteCastleRight = false;
-                else if (rook.col == 0) canWhiteCastleLeft = false;
-            } else {
-                if (rook.col == 7) canBlackCastleRight = false;
-                else if (rook.col == 0) canBlackCastleLeft = false;
-            }
-        }
-
         return (from.col == to.col && isClearVerticallyBetween(from, to)) || (from.row == to.row && isClearHorizontallyBetween(from, to));
     }
 
@@ -251,24 +252,22 @@ public class ChessModel {
                 if (from.col < to.col && canWhiteCastleRight) {
                     rook = pieceAt(new Square(7, 0));
                     rook.col = 5;
-                    castled(true);
                 }
                 else if (from.col > to.col && canWhiteCastleLeft) {
                     rook = pieceAt(new Square(0, 0));
                     rook.col = 3;
-                    castled(true);
                 }
+                castled(true);
             } else if (king.player == ChessPlayer.BLACK) {
                 if (from.col < to.col && canBlackCastleRight) {
                     rook = pieceAt(new Square(7, 7));
                     rook.col = 5;
-                    castled(false);
                 }
                 else if (from.col > to.col && canBlackCastleLeft) {
                     rook = pieceAt(new Square(0, 7));
                     rook.col = 3;
-                    castled(false);
                 }
+                castled(false);
             }
         }
     }

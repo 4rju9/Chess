@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.WindowManager;
@@ -18,14 +17,12 @@ public class MainActivity extends AppCompatActivity implements ChessDelegate, Se
     ChessView chessView;
     private TextView title;
     private ChessService game = null;
-    private MediaPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        player = MediaPlayer.create(this, R.raw.sound_move);
         makeServiceCall();
         setupUIViews();
         initButtons();
@@ -76,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements ChessDelegate, Se
         if (from.col == to.col && from.row == to.row) return;
         if (game != null) {
             game.chessModel.movePiece(from, to);
-            player.start();
+            game.player.start();
             chessView.invalidate();
         }
     }
@@ -105,14 +102,5 @@ public class MainActivity extends AppCompatActivity implements ChessDelegate, Se
                 })
                 .setCancelable(false)
                 .show();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        player.release();
-        player = null;
-
     }
 }
